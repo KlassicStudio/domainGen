@@ -19,7 +19,7 @@ console.log(domainNames);
 // Get the <div> element by its id
 let domainList = document.getElementById('domain-list');
 
-// Loop through the domainNames array and add each name to the <div> element
+// Loop through the domainNames array and add each name to the <h1> element
 let domainListContent = '';
 for (let domain of domainNames) {
     domainListContent += `<p>${domain}</p>`;

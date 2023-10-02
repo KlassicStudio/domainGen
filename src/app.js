@@ -1,11 +1,18 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+let pronoun = ['the', 'our', 'los', 'las', 'The'];
+let adj = ['great', 'big'];
+let noun = ['jogger', 'racoon'];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+
+function domainGen(start, middle, end) {
+  let randomStart = (Math.floor(Math.random()) * start.length) + 1;
+  let randomMiddle = (Math.floor(Math.random()) * middle.length) + 1;
+  let randomEnd = (Math.floor(Math.random()) * end.length) + 1;
+  
+     return `${start[randomStart]} ${middle[randomMiddle]} ${end[randomEnd]}`;
+  }
+
+console.log(domainGen(pronoun, adj, noun));
+
+// Update header text
+document.querySelector('#domain').innerHTML = domainGen(pronoun, adj, noun);

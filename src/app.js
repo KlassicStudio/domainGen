@@ -1,18 +1,32 @@
-let pronoun = ['the', 'our', 'los', 'las', 'The'];
-let adj = ['great', 'big'];
-let noun = ['jogger', 'racoon'];
+let pronouns = ['the', 'our', 'my'];
+let adjectives = ['great', 'big', 'small'];
+let nouns = ['jogger', 'racoon', 'cat'];
+
+let domainNames = [];
+
+for (let pronoun of pronouns) {
+    for (let adjective of adjectives) {
+        for (let noun of nouns) {
+            // Concatenate the elements to form a domain name
+            let domainName = `${pronoun}${adjective}${noun}.com`;
+            domainNames.push(domainName);
+        }
+    }
+}
+
+console.log(domainNames);
+
+// Get the <div> element by its id
+let domainList = document.getElementById('domain-list');
+
+// Loop through the domainNames array and add each name to the <div> element
+let domainListContent = '';
+for (let domain of domainNames) {
+    domainListContent += `<p>${domain}</p>`;
+}
+
+domainList.innerHTML = domainListContent;
 
 
 
-function domainGen(start, middle, end) {
-  let randomStart = (Math.floor(Math.random()) * start.length) + 1;
-  let randomMiddle = (Math.floor(Math.random()) * middle.length) + 1;
-  let randomEnd = (Math.floor(Math.random()) * end.length) + 1;
-  
-     return `${start[randomStart]} ${middle[randomMiddle]} ${end[randomEnd]}`;
-  }
 
-console.log(domainGen(pronoun, adj, noun));
-
-// Update header text
-document.querySelector('#domain').innerHTML = domainGen(pronoun, adj, noun);
